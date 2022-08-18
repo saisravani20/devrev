@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+<h2>LIBRARY MANAGEMENT SYSTEM</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:20%;">TITLE</th>
+    <th style="width:20%;">AUTHOR</th>
+    <th style="width:20%;">SUBJECT</th>
+    <th style="width:20%;">PUBLISH DATE</th>
+  </tr>
+  <tr>
+    <td>The Hobbit</td>
+    <td>J. R. R. Tolkien</td>
+    <td>Fiction</td>
+    <td> February 15, 2018</td>
+  </tr>
+  <tr>
+    <td>Love in the Time of Cholera</td>
+    <td>Gabriel Garcia Márquez</td>
+    <td>Love</td>
+    <td> January 20, 1987</td>
+  </tr>
+  <tr>
+    <td>Harry Potter</td>
+    <td>J.K. Rowling</td>
+    <td>Action and Adventure</td>
+    <td> October 25, 2001</td>
+  </tr>
+  <tr>
+    <td>The Pickwick Papers </td>
+    <td>Charles Dickens</td>
+    <td>Classic</td>
+    <td> August 23, 1994</td>
+  </tr>
+  <tr>
+    <td>The Three Musketeers</td>
+    <td>Alexandre Dumas</td>
+    <td>Action and Adventure</td>
+    <td> December 20, 1967</td>
+  </tr>
+  <tr>
+    <td>Emma</td>
+    <td>Jane Austen</td>
+    <td>Love</td>
+    <td> July 3, 1989</td>
+  </tr>
+  <tr>
+    <td>The Colour Purple</td>
+    <td>Alice Walker</td>
+    <td>Fiction</td>
+    <td> October 15, 1998</td>
+  </tr>
+  <tr>
+    <td>Journey to the Center of the Earth</td>
+    <td>Jules Verne</td>
+    <td>Action and Adventure</td>
+    <td> September 12, 2002</td>
+  </tr>
+  <tr>
+    <td>The Cuckoo is Calling</td>
+    <td>J.K. Rowling</td>
+    <td>Fiction</td>
+    <td> February 15, 2018</td>
+  </tr>
+  <tr>
+    <td>Little Women</td>
+    <td> Louisa May Alcott</td>
+    <td>Classic</td>
+    <td> August 15, 1977</td>
+  </tr>
+  <tr>
+    <td>Little Women</td>
+    <td> Louisa May Alcott</td>
+    <td>Classic</td>
+    <td> August 15, 1977</td>
+  </tr>
+  <tr>
+    <td>Little Women</td>
+    <td> Louisa May Alcott</td>
+    <td>Classic</td>
+    <td> August 15, 1977</td>
+  </tr>
+  <tr>
+    <td>Little Women</td>
+    <td> Louisa May Alcott</td>
+    <td>Classic</td>
+    <td> August 15, 1977</td>
+  </tr>
+  <tr>
+    <td>Little Women</td>
+    <td> Louisa May Alcott</td>
+    <td>Classic</td>
+    <td> August 15, 1977</td>
+  </tr>
+  <tr>
+    <td>Little Women</td>
+    <td> Louisa May Alcott</td>
+    <td>Classic</td>
+    <td> August 15, 1977</td>
+  </tr>
+</table>
+
+<script>
+// function myFunction() {
+//   var input, filter, table, tr, td, i, txtValue;
+//   input = document.getElementById("myInput");
+//   filter = input.value.toUpperCase();
+//   table = document.getElementById("myTable");
+//   tr = table.getElementsByTagName("tr");
+//   for (i = 0; i < tr.length; i++) {
+//     td = tr[i].getElementsByTagName("td");
+//     if (td) {
+//       txtValue = td.textContent || td.innerText;
+//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//         tr[i].style.display = "";
+//       } else {
+//         tr[i].style.display = "none";
+//       }
+//     }       
+//   }
+// }
+
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  var rows = table.getElementsByTagName("tr");
+  for (i = 0; i < rows.length; i++) {
+    var cells = rows[i].getElementsByTagName("td");
+    var j;
+    var rowContainsFilter = false;
+    for (j = 0; j < cells.length; j++) {
+      if (cells[j]) {
+        if (cells[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+          rowContainsFilter = true;
+          continue;
+        }
+      }
+    }
+
+    if (! rowContainsFilter) {
+      rows[i].style.display = "none";
+    } else {
+      rows[i].style.display = "";
+    }
+  }
+}
+</script>
+
+
+
+
+</body>
+</html>
